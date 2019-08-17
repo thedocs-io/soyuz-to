@@ -77,6 +77,11 @@ dependencies {
 }
 ```
 
+### Import to java class
+```
+import io.thedocs.soyuz.to;
+```
+
 ## Dependencies
 This library depends on `slf4j-api` and `com.google.code.findbugs:jsr305` (`javax.annotation.Nullable`)
 
