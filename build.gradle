@@ -4,8 +4,8 @@ apply plugin: "maven"
 apply plugin: "signing"
 
 group = "io.thedocs"
-archivesBaseName = "soyuz-is-to"
-version = "0.75"
+archivesBaseName = "soyuz-to"
+version = "1.0.1"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -66,16 +66,16 @@ uploadArchives {
             }
 
             pom.project {
-                name "soyuz-is-to"
+                name "soyuz-to"
                 packaging "jar"
                 // optionally artifactId can be defined here
-                description "truthy checks + simple x -> y conversion for Java"
-                url "https://github.com/thedocs-io/soyuz-is-to"
+                description "simple x -> y conversion for Java"
+                url "https://github.com/thedocs-io/soyuz-to"
 
                 scm {
-                    url "scm:git@github.com:thedocs-io/soyuz-is-to.git"
-                    connection "scm:git@github.com:thedocs-io/soyuz-is-to.git"
-                    developerConnection "scm:git@github.com:thedocs-io/soyuz-is-to.git"
+                    url "scm:git@github.com:thedocs-io/soyuz-to.git"
+                    connection "scm:git@github.com:thedocs-io/soyuz-to.git"
+                    developerConnection "scm:git@github.com:thedocs-io/soyuz-to.git"
                 }
 
                 licenses {

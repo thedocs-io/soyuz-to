@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -60,7 +61,7 @@ public class toMapTest {
 
     @Test
     public void shouldTransformIterableToMapWithKeyValueFunctions() {
-        Iterable<Integer> iterable = to.list(1, 2, 3);
+        List<Integer> iterable = to.list(1, 2, 3);
         Map<String, Integer> expected = to.map("1", 2, "2", 4, "3", 6);
 
         assertEquals(expected, to.map(iterable, v -> to.s(v), v -> v * 2));

@@ -23,6 +23,9 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.*;
 
+/**
+ * Created on 30.11.15.
+ */
 public class to {
 
     private static final Logger log = LoggerFactory.getLogger(to.class);
@@ -31,8 +34,7 @@ public class to {
         return val;
     }
 
-    @Nullable
-    public static Integer Integer(@Nullable Object val) {
+    public static Integer Integer(Object val) {
         if (val == null) {
             return null;
         } else if (val instanceof Integer) {
@@ -42,18 +44,15 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Integer Integer(@Nullable String val) {
+    public static Integer Integer(String val) {
         return Integer(val, null);
     }
 
-    @Nullable
-    public static Integer Integer(@Nullable Object val, @Nullable Integer defaultValue) {
+    public static Integer Integer(Object val, Integer defaultValue) {
         return Integer(val, defaultValue, true);
     }
 
-    @Nullable
-    public static Integer Integer(@Nullable Object val, @Nullable Integer defaultValue, boolean silent) {
+    public static Integer Integer(Object val, Integer defaultValue, boolean silent) {
         if (val != null) {
             try {
                 return doIntConvert(val);
@@ -69,8 +68,7 @@ public class to {
         return val;
     }
 
-    @Nullable
-    public static Float Float(@Nullable Object val) {
+    public static Float Float(Object val) {
         if (val == null) {
             return null;
         } else if (val instanceof Float) {
@@ -80,18 +78,18 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Float Float(@Nullable String val) {
+
+    public static Float Float(String val) {
         return Float(val, null);
     }
 
-    @Nullable
-    public static Float Float(@Nullable Object val, @Nullable Float defaultValue) {
+
+    public static Float Float(Object val, Float defaultValue) {
         return Float(val, defaultValue, true);
     }
 
-    @Nullable
-    public static Float Float(@Nullable Object val, @Nullable Float defaultValue, boolean silent) {
+
+    public static Float Float(Object val, Float defaultValue, boolean silent) {
         if (val != null) {
             try {
                 if (val instanceof Float) {
@@ -111,23 +109,23 @@ public class to {
         return val;
     }
 
-    @Nullable
-    public static Double Double(@Nullable Object val) {
+
+    public static Double Double(Object val) {
         return Double(val, null);
     }
 
-    @Nullable
-    public static Double Double(@Nullable String val) {
+
+    public static Double Double(String val) {
         return Double(val, null);
     }
 
-    @Nullable
-    public static Double Double(@Nullable Object val, @Nullable Double defaultValue) {
+
+    public static Double Double(Object val, Double defaultValue) {
         return Double(val, defaultValue, true);
     }
 
-    @Nullable
-    public static Double Double(@Nullable Object val, @Nullable Double defaultValue, boolean silent) {
+
+    public static Double Double(Object val, Double defaultValue, boolean silent) {
         if (val != null) {
             try {
                 if (val instanceof Double) {
@@ -147,23 +145,23 @@ public class to {
         return val;
     }
 
-    @Nullable
-    public static Long Long(@Nullable Object val) {
+
+    public static Long Long(Object val) {
         return Long(val, null);
     }
 
-    @Nullable
-    public static Long Long(@Nullable String val) {
+
+    public static Long Long(String val) {
         return Long(val, null);
     }
 
-    @Nullable
-    public static Long Long(@Nullable Object val, @Nullable Long defaultValue) {
+
+    public static Long Long(Object val, Long defaultValue) {
         return Long(val, defaultValue, true);
     }
 
-    @Nullable
-    public static Long Long(@Nullable Object val, @Nullable Long defaultValue, boolean silent) {
+
+    public static Long Long(Object val, Long defaultValue, boolean silent) {
         if (val != null) {
             try {
                 if (val instanceof Long) {
@@ -183,18 +181,18 @@ public class to {
         return val;
     }
 
-    @Nullable
-    public static Boolean Boolean(@Nullable String val) {
+
+    public static Boolean Boolean(String val) {
         return Boolean(val, null);
     }
 
-    @Nullable
-    public static Boolean Boolean(@Nullable String val, @Nullable Boolean defaultValue) {
+
+    public static Boolean Boolean(String val, Boolean defaultValue) {
         return Boolean(val, defaultValue, true);
     }
 
-    @Nullable
-    public static Boolean Boolean(@Nullable Object val, @Nullable Boolean defaultValue, boolean silent) {
+
+    public static Boolean Boolean(Object val, Boolean defaultValue, boolean silent) {
         if (val != null) {
             try {
                 return doBooleanConvert(val);
@@ -206,13 +204,13 @@ public class to {
         return defaultValue;
     }
 
-    @Nullable
-    public static String String(@Nullable Object object) {
+
+    public static String String(Object object) {
         return (object == null) ? null : object.toString();
     }
 
-    @Nullable
-    public static String s(@Nullable Object object) {
+
+    public static String s(Object object) {
         return to.String(object);
     }
 
@@ -268,8 +266,8 @@ public class to {
      * Replaces {} from {@code text} with {@code params}
      * e.g. to.s("Hello {}", "World") -&gt; Hello World
      */
-    @Nullable
-    public static String String(@Nullable String text, Object... params) {
+
+    public static String String(String text, Object... params) {
         if (text == null) {
             return null;
         }
@@ -313,13 +311,13 @@ public class to {
         return sb.toString();
     }
 
-    @Nullable
-    public static String s(@Nullable String text, Object... params) {
+
+    public static String s(String text, Object... params) {
         return to.String(text, params);
     }
 
-    @Nullable
-    public static String String(@Nullable String text, Collection params) {
+
+    public static String String(String text, Collection params) {
         if (text == null) {
             return null;
         }
@@ -327,13 +325,13 @@ public class to {
         return to.String(text, to.arr(params, Object.class));
     }
 
-    @Nullable
-    public static String s(@Nullable String text, Collection params) {
+
+    public static String s(String text, Collection params) {
         return to.String(text, params);
     }
 
-    @Nullable
-    public static String String(@Nullable String text, Iterable params) {
+
+    public static String String(String text, Iterable params) {
         if (text == null) {
             return null;
         }
@@ -341,8 +339,8 @@ public class to {
         return to.String(text, to.arr(params, Object.class));
     }
 
-    @Nullable
-    public static String s(@Nullable String text, Iterable params) {
+
+    public static String s(String text, Iterable params) {
         return to.String(text, params);
     }
 
@@ -350,8 +348,8 @@ public class to {
      * Replaces {PARAM_KEY} from {@code text} with {@code params}
      * e.g. to.s("Hello {planet}", to.map("planet", "Earth")) -&gt; Hello Earth
      */
-    @Nullable
-    public static String String(@Nullable String text, Map<String, ?> params) {
+
+    public static String String(String text, Map<String, ?> params) {
         if (text == null) {
             return null;
         }
@@ -365,16 +363,16 @@ public class to {
         return text;
     }
 
-    @Nullable
-    public static String s(@Nullable String text, Map<String, ?> params) {
+
+    public static String s(String text, Map<String, ?> params) {
         return to.String(text, params);
     }
 
     /**
      * Joins {@code iterable} with {@code separator}
      */
-    @Nullable
-    public static String String(@Nullable Iterable iterable, String separator) {
+
+    public static String String(Iterable iterable, String separator) {
         if (iterable == null) {
             return null;
         }
@@ -392,8 +390,8 @@ public class to {
         return sb.toString();
     }
 
-    @Nullable
-    public static String s(@Nullable Iterable iterable, String separator) {
+
+    public static String s(Iterable iterable, String separator) {
         return to.String(iterable, separator);
     }
 
@@ -403,15 +401,15 @@ public class to {
         return objects;
     }
 
-    public static Object[] arr(@Nullable Iterable objects) {
+    public static Object[] arr(Iterable objects) {
         return to.arr(objects, Object.class);
     }
 
-    public static <V> V[] arr(@Nullable Iterable<V> objects, Class<V> clazz) {
+    public static <V> V[] arr(Iterable<V> objects, Class<V> clazz) {
         return to.arr(to.list(objects), clazz);
     }
 
-    public static <V> V[] arr(@Nullable Collection<V> objects, Class<V> clazz) {
+    public static <V> V[] arr(Collection<V> objects, Class<V> clazz) {
         if (objects == null) {
             return (V[]) Array.newInstance(clazz, 0);
         } else {
@@ -512,7 +510,6 @@ public class to {
         return fillMapWithParams(new HashMap<String, String>(), params);
     }
 
-    //todo ???
     public static Map<String, String> map(Map<String, String> source, String... params) {
         return fillMapWithParams(new HashMap<>(source), params);
     }
@@ -521,13 +518,11 @@ public class to {
         return fillMapWithParams(new HashMap(), params);
     }
 
-    //todo ???
     public static Map map(Map source, Object... params) {
         return fillMapWithParams(new HashMap(source), params);
     }
 
-    @Nullable
-    public static <K, V, R> Map<K, R> map(@Nullable Map<K, V> source, Function<Map.Entry<K, V>, Map<K, R>> mapper) {
+    public static <K, V, R> Map<K, R> map(Map<K, V> source, Function<Map.Entry<K, V>, Map<K, R>> mapper) {
         if (source == null) {
             return null;
         }
@@ -545,8 +540,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <K, V, R> Map<K, R> map(@Nullable Map<K, V> source, BiFunction<K, V, R> mapper) {
+
+    public static <K, V, R> Map<K, R> map(Map<K, V> source, BiFunction<K, V, R> mapper) {
         if (source == null) {
             return null;
         }
@@ -560,13 +555,13 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T, K> Map<K, T> map(@Nullable Iterable<T> source, Function<T, K> keyFunction) {
+
+    public static <T, K> Map<K, T> map(Iterable<T> source, Function<T, K> keyFunction) {
         return map(source, keyFunction, (s) -> s);
     }
 
-    @Nullable
-    public static <T, K, V> Map<K, V> map(@Nullable Iterable<T> source, Function<T, K> keyFunction, Function<T, V> valueFunction) {
+
+    public static <T, K, V> Map<K, V> map(Iterable<T> source, Function<T, K> keyFunction, Function<T, V> valueFunction) {
         if (source == null) {
             return null;
         }
@@ -638,7 +633,6 @@ public class to {
         return fillMapWithParams(new LinkedHashMap<String, String>(), params);
     }
 
-    //todo ???
     public static Map<String, String> linkedHashMap(Map<String, String> source, String... params) {
         return fillMapWithParams(new LinkedHashMap<>(source), params);
     }
@@ -647,13 +641,11 @@ public class to {
         return fillMapWithParams(new LinkedHashMap(), params);
     }
 
-    //todo ???
     public static Map linkedHashMap(Map source, Object... params) {
         return fillMapWithParams(new LinkedHashMap(source), params);
     }
 
-    @Nullable
-    public static <K, V, R> Map<K, R> linkedHashMap(@Nullable Map<K, V> source, Function<Map.Entry<K, V>, Map<K, R>> mapper) {
+    public static <K, V, R> Map<K, R> linkedHashMap(Map<K, V> source, Function<Map.Entry<K, V>, Map<K, R>> mapper) {
         if (source == null) {
             return null;
         }
@@ -671,8 +663,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <K, V, R> Map<K, R> linkedHashMap(@Nullable Map<K, V> source, BiFunction<K, V, R> mapper) {
+
+    public static <K, V, R> Map<K, R> linkedHashMap(Map<K, V> source, BiFunction<K, V, R> mapper) {
         if (source == null) {
             return null;
         }
@@ -686,13 +678,13 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T, K> Map<K, T> linkedHashMap(@Nullable Iterable<T> source, Function<T, K> keyFunction) {
+
+    public static <T, K> Map<K, T> linkedHashMap(Iterable<T> source, Function<T, K> keyFunction) {
         return linkedHashMap(source, keyFunction, (s) -> s);
     }
 
-    @Nullable
-    public static <T, K, V> Map<K, V> linkedHashMap(@Nullable Iterable<T> source, Function<T, K> keyFunction, Function<T, V> valueFunction) {
+
+    public static <T, K, V> Map<K, V> linkedHashMap(Iterable<T> source, Function<T, K> keyFunction, Function<T, V> valueFunction) {
         if (source == null) {
             return null;
         }
@@ -720,16 +712,16 @@ public class to {
 
     // STREAM
 
-    @Nullable
-    public static <T> Stream<T> stream(@Nullable T[] array) {
+
+    public static <T> Stream<T> stream(T[] array) {
         return (array == null) ? null : Arrays.stream(array);
     }
 
     /**
      * http://stackoverflow.com/a/24511534
      */
-    @Nullable
-    public static <T> Stream<T> stream(@Nullable final Iterator<T> iterator) {
+
+    public static <T> Stream<T> stream(final Iterator<T> iterator) {
         if (iterator == null) {
             return null;
         }
@@ -738,18 +730,18 @@ public class to {
         return StreamSupport.stream(iterable.spliterator(), false);
     }
 
-    @Nullable
-    public static IntStream stream(@Nullable int[] array) {
+
+    public static IntStream stream(int[] array) {
         return (array == null) ? null : Arrays.stream(array);
     }
 
-    @Nullable
-    public static LongStream stream(@Nullable long[] array) {
+
+    public static LongStream stream(long[] array) {
         return (array == null) ? null : Arrays.stream(array);
     }
 
-    @Nullable
-    public static DoubleStream stream(@Nullable double[] array) {
+
+    public static DoubleStream stream(double[] array) {
         return (array == null) ? null : Arrays.stream(array);
     }
 
@@ -759,16 +751,16 @@ public class to {
         return new ArrayList<V>();
     }
 
-    @Nullable
-    public static <T> List<T> list(@Nullable Iterator<T> iterator) {
+
+    public static <T> List<T> list(Iterator<T> iterator) {
         return list(iterator, 10);
     }
 
     /**
      * see org.apache.commons.collections.IteratorUtils.toList
      */
-    @Nullable
-    public static <T> List<T> list(@Nullable Iterator<T> iterator, int estimatedSize) {
+
+    public static <T> List<T> list(Iterator<T> iterator, int estimatedSize) {
         if (iterator == null) {
             return null;
         } else if (estimatedSize < 1) {
@@ -784,8 +776,8 @@ public class to {
         }
     }
 
-    @Nullable
-    public static <T> List<T> list(@Nullable T value) {
+
+    public static <T> List<T> list(T value) {
         if (value == null) return null;
 
         List<T> answer = new ArrayList<>();
@@ -793,8 +785,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T> List<T> list(@Nullable T... value) {
+
+    public static <T> List<T> list(T... value) {
         if (value == null) return null;
 
         List<T> answer = new ArrayList<>();
@@ -802,8 +794,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T> List<T> list(@Nullable Iterable<T> objects) {
+
+    public static <T> List<T> list(Iterable<T> objects) {
         if (objects == null) {
             return null;
         }
@@ -817,8 +809,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T, R> List<R> list(@Nullable T[] values, Function<T, R> mapper) {
+
+    public static <T, R> List<R> list(T[] values, Function<T, R> mapper) {
         if (values == null) return null;
 
         List<R> answer = new ArrayList<R>(values.length);
@@ -830,8 +822,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <V> List<V> list(@Nullable Collection<V> values) {
+
+    public static <V> List<V> list(Collection<V> values) {
         if (values == null) {
             return null;
         } else if (values instanceof List) {
@@ -845,8 +837,8 @@ public class to {
         }
     }
 
-    @Nullable
-    public static <T, V> List<T> list(@Nullable Collection<V> values, Function<V, T> mapper) {
+
+    public static <T, V> List<T> list(Collection<V> values, Function<V, T> mapper) {
         if (values == null) return null;
 
         List<T> answer = new ArrayList<T>(values.size());
@@ -858,8 +850,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <K, V, R> List<R> list(@Nullable Map<K, V> map, BiFunction<K, V, R> mapper) {
+
+    public static <K, V, R> List<R> list(Map<K, V> map, BiFunction<K, V, R> mapper) {
         if (map == null) return null;
 
         List<R> answer = new ArrayList<>(map.values().size());
@@ -871,8 +863,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T> Set<T> set(@Nullable T value) {
+
+    public static <T> Set<T> set(T value) {
         if (value == null) return null;
 
         Set<T> answer = new HashSet<T>();
@@ -880,8 +872,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T> Set<T> set(@Nullable T... value) {
+
+    public static <T> Set<T> set(T... value) {
         if (value == null) return null;
 
         Set<T> answer = new HashSet<T>();
@@ -889,8 +881,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <V> Set<V> set(@Nullable Collection<V> values) {
+
+    public static <V> Set<V> set(Collection<V> values) {
         if (values == null) {
             return null;
         } else if (values instanceof Set) {
@@ -904,8 +896,8 @@ public class to {
         }
     }
 
-    @Nullable
-    public static <T> Set<T> set(@Nullable Iterator<T> iterator) {
+
+    public static <T> Set<T> set(Iterator<T> iterator) {
         if (iterator == null) {
             return null;
         } else {
@@ -919,8 +911,8 @@ public class to {
         }
     }
 
-    @Nullable
-    public static <V> Set<V> set(@Nullable Iterable<V> values) {
+
+    public static <V> Set<V> set(Iterable<V> values) {
         if (values == null) {
             return null;
         } else if (values instanceof Set) {
@@ -936,8 +928,8 @@ public class to {
         }
     }
 
-    @Nullable
-    public static <T, V> Set<T> set(@Nullable Collection<V> values, Function<V, T> mapper) {
+
+    public static <T, V> Set<T> set(Collection<V> values, Function<V, T> mapper) {
         if (values == null) return null;
 
         Set<T> answer = new HashSet<T>();
@@ -949,8 +941,8 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <K, V, R> Set<R> set(@Nullable Map<K, V> map, BiFunction<K, V, R> mapper) {
+
+    public static <K, V, R> Set<R> set(Map<K, V> map, BiFunction<K, V, R> mapper) {
         if (map == null) return null;
 
         Set<R> answer = new HashSet<>();
@@ -962,7 +954,7 @@ public class to {
         return answer;
     }
 
-    @Nullable
+
     public static <T> SortedSet<T> sortedSet(T value) {
         if (value == null) return null;
 
@@ -981,15 +973,15 @@ public class to {
         return answer;
     }
 
-    @Nullable
-    public static <T> SortedSet<T> sortedSet(@Nullable Collection<T> values) {
+
+    public static <T> SortedSet<T> sortedSet(Collection<T> values) {
         if (values == null) return null;
 
         return new TreeSet<>(values);
     }
 
-    @Nullable
-    public static <T, V> SortedSet<V> sortedSet(@Nullable Iterable<T> values, Function<T, V> mapper) {
+
+    public static <T, V> SortedSet<V> sortedSet(Iterable<T> values, Function<T, V> mapper) {
         if (values == null) return null;
 
         SortedSet<V> answer = new TreeSet<>();
@@ -1002,31 +994,25 @@ public class to {
     }
 
     // DATE
-
-    @Nullable
-    public static Date date(@Nullable java.sql.Date dateSql) {
+    public static Date date(java.sql.Date dateSql) {
         return (dateSql) == null ? null : new Date(dateSql.getTime());
     }
 
-    @Nullable
-    public static Date date(@Nullable LocalDate localDate) {
+    public static Date date(LocalDate localDate) {
         //http://stackoverflow.com/a/22929420/716027
         return date(localDate, ZoneId.systemDefault());
     }
 
-    @Nullable
-    public static Date date(@Nullable LocalDate localDate, ZoneId zone) {
+    public static Date date(LocalDate localDate, ZoneId zone) {
         return (localDate == null) ? null : date(localDate.atStartOfDay(zone));
     }
 
-    @Nullable
-    public static Date date(@Nullable LocalDateTime localDateTime) {
+    public static Date date(LocalDateTime localDateTime) {
         //http://blog.progs.be/542/date-to-java-time
         return date(localDateTime, ZoneId.systemDefault());
     }
 
-    @Nullable
-    public static Date date(@Nullable Instant instant) {
+    public static Date date(Instant instant) {
         if (instant == null) {
             return null;
         } else {
@@ -1034,43 +1020,42 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Date date(@Nullable LocalDateTime localDateTime, ZoneId zone) {
+    public static Date date(LocalDateTime localDateTime, ZoneId zone) {
         return (localDateTime == null) ? null : date(localDateTime.atZone(zone));
     }
 
-    @Nullable
-    public static Date date(@Nullable ZonedDateTime zonedDateTime) {
+
+    public static Date date(ZonedDateTime zonedDateTime) {
         return (zonedDateTime == null) ? null : Date.from(zonedDateTime.toInstant());
     }
 
-    @Nullable
-    public static java.sql.Date sqlDate(@Nullable Date date) {
+
+    public static java.sql.Date sqlDate(Date date) {
         return (date == null) ? null : new java.sql.Date(date.getTime());
     }
 
-    @Nullable
-    public static java.sql.Date sqlDate(@Nullable LocalDate date) {
+
+    public static java.sql.Date sqlDate(LocalDate date) {
         return sqlDate(date(date));
     }
 
-    @Nullable
-    public static java.sql.Date sqlDate(@Nullable LocalDateTime dateTime) {
+
+    public static java.sql.Date sqlDate(LocalDateTime dateTime) {
         return sqlDate(date(dateTime));
     }
 
-    @Nullable
-    public static java.sql.Timestamp sqlTimestamp(@Nullable Date date) {
+
+    public static java.sql.Timestamp sqlTimestamp(Date date) {
         return (date == null) ? null : new java.sql.Timestamp(date.getTime());
     }
 
-    @Nullable
-    public static java.sql.Timestamp sqlTimestamp(@Nullable LocalDate date) {
+
+    public static java.sql.Timestamp sqlTimestamp(LocalDate date) {
         return sqlTimestamp(date(date));
     }
 
-    @Nullable
-    public static java.sql.Timestamp sqlTimestamp(@Nullable LocalDateTime dateTime) {
+
+    public static java.sql.Timestamp sqlTimestamp(LocalDateTime dateTime) {
         return sqlTimestamp(date(dateTime));
     }
 
@@ -1083,28 +1068,28 @@ public class to {
         return LocalDateTime.ofInstant(Instant.ofEpochMilli(millis), zone);
     }
 
-    @Nullable
-    public static LocalDateTime localDateTime(@Nullable Date date) {
+
+    public static LocalDateTime localDateTime(Date date) {
         //http://blog.progs.be/542/date-to-java-time
         return (date == null) ? null : localDateTime(date.getTime());
     }
 
-    @Nullable
-    public static LocalDateTime localDateTime(@Nullable Instant instant) {
+
+    public static LocalDateTime localDateTime(Instant instant) {
         return localDateTime(date(instant));
     }
 
-    @Nullable
-    public static LocalDate localDate(@Nullable Date date) {
+
+    public static LocalDate localDate(Date date) {
         return localDate(date, ZoneId.systemDefault());
     }
 
-    @Nullable
-    public static LocalDate localDate(@Nullable Instant instant) {
+
+    public static LocalDate localDate(Instant instant) {
         return localDate(date(instant));
     }
 
-    public static LocalDate localDate(@Nullable Date date, ZoneId zone) {
+    public static LocalDate localDate(Date date, ZoneId zone) {
         return (date == null) ? null : localDate(date.getTime(), zone);
     }
 
@@ -1124,13 +1109,13 @@ public class to {
         return localDateTime(millis, zone).toLocalTime();
     }
 
-    @Nullable
-    public static ZonedDateTime zonedDateTime(@Nullable Date date) {
+
+    public static ZonedDateTime zonedDateTime(Date date) {
         return zonedDateTime(date, null);
     }
 
-    @Nullable
-    public static ZonedDateTime zonedDateTime(@Nullable Date date, @Nullable ZoneId zone) {
+
+    public static ZonedDateTime zonedDateTime(Date date, ZoneId zone) {
         if (date == null) {
             return null;
         } else {
@@ -1138,11 +1123,11 @@ public class to {
         }
     }
 
-    public static ZonedDateTime zonedDateTime(@Nullable LocalDateTime localDateTime) {
+    public static ZonedDateTime zonedDateTime(LocalDateTime localDateTime) {
         return zonedDateTime(localDateTime, null);
     }
 
-    public static ZonedDateTime zonedDateTime(@Nullable LocalDateTime localDateTime, @Nullable ZoneId zone) {
+    public static ZonedDateTime zonedDateTime(LocalDateTime localDateTime, ZoneId zone) {
         if (localDateTime == null) {
             return null;
         } else {
@@ -1150,8 +1135,7 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Instant instant(@Nullable Date date) {
+    public static Instant instant(Date date) {
         if (date == null) {
             return null;
         } else {
@@ -1159,13 +1143,11 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDate localDate) {
+    public static Instant instant(LocalDate localDate) {
         return instant(localDate, ZoneId.systemDefault());
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDate localDate, ZoneOffset zoneOffset) {
+    public static Instant instant(LocalDate localDate, ZoneOffset zoneOffset) {
         if (localDate == null) {
             return null;
         } else {
@@ -1173,8 +1155,7 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDate localDate, ZoneId zoneId) {
+    public static Instant instant(LocalDate localDate, ZoneId zoneId) {
         if (localDate == null) {
             return null;
         } else {
@@ -1182,13 +1163,11 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDateTime localDateTime) {
+    public static Instant instant(LocalDateTime localDateTime) {
         return instant(localDateTime, ZoneId.systemDefault());
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDateTime localDateTime, ZoneOffset zoneOffset) {
+    public static Instant instant(LocalDateTime localDateTime, ZoneOffset zoneOffset) {
         if (localDateTime == null) {
             return null;
         } else {
@@ -1196,8 +1175,7 @@ public class to {
         }
     }
 
-    @Nullable
-    public static Instant instant(@Nullable LocalDateTime localDateTime, ZoneId zoneId) {
+    public static Instant instant(LocalDateTime localDateTime, ZoneId zoneId) {
         if (localDateTime == null) {
             return null;
         } else {
@@ -1206,9 +1184,7 @@ public class to {
     }
 
     // URL
-
-    @Nullable
-    public static URI uri(@Nullable String url) {
+    public static URI uri(String url) {
         try {
             return (url == null) ? null : new URI(url);
         } catch (URISyntaxException e) {
@@ -1221,8 +1197,7 @@ public class to {
         return new URI(url);
     }
 
-    @Nullable
-    public static URL url(@Nullable String url) {
+    public static URL url(String url) {
         try {
             return (url == null) ? null : new URL(url);
         } catch (MalformedURLException e) {
@@ -1236,14 +1211,11 @@ public class to {
     }
 
     // FUNC
-
-    @Nullable
-    public static <T, V> V nullOr(@Nullable T object, Function<T, V> func) {
+    public static <T, V> V nullOr(T object, Function<T, V> func) {
         return (object == null) ? null : func.apply(object);
     }
 
-    @Nullable
-    public static <T> T nullOr(@Nullable Object o, Supplier<T> supplier) {
+    public static <T> T nullOr(Object o, Supplier<T> supplier) {
         return (o == null) ? null : supplier.get();
     }
 
@@ -1296,23 +1268,19 @@ public class to {
     }
 
     // THREAD
-    @Nullable
-    public static Thread thread(@Nullable Runnable runnable) {
+    public static Thread thread(Runnable runnable) {
         return to.thread(null, runnable);
     }
 
-    @Nullable
-    public static Thread thread(@Nullable String threadName, @Nullable Runnable runnable) {
-        return (is.t(threadName)) ? new Thread(runnable, threadName) : new Thread(runnable);
+    public static Thread thread(String threadName, Runnable runnable) {
+        return (threadName != null && !threadName.equals("")) ? new Thread(runnable, threadName) : new Thread(runnable);
     }
 
-    @Nullable
-    public static Thread daemon(@Nullable Runnable runnable) {
+    public static Thread daemon(Runnable runnable) {
         return daemon(null, runnable);
     }
 
-    @Nullable
-    public static Thread daemon(@Nullable String threadName, @Nullable Runnable runnable) {
+    public static Thread daemon(String threadName, Runnable runnable) {
         if (runnable == null) {
             return null;
         }
@@ -1422,7 +1390,7 @@ public class to {
                 }
             };
 
-            Thread t = (is.t(threadName)) ? new Thread(forever, threadName) : new Thread(forever);
+            Thread t = (threadName != null && !threadName.equals("")) ? new Thread(forever, threadName) : new Thread(forever);
             t.setDaemon(true);
 
             return t;
