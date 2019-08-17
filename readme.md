@@ -22,7 +22,7 @@ Stream<String> stream = to.stream(new String[]{"1", "2"}); //59k views - https:/
 ```
 
 
-## to functional convert
+## to convert functional
 Use simple transformation functions to transform `Collections` / `Maps`:
 ```java
 List<Car> cars = to.list(new Car(1, "bmw"), new Car(2, "lada"));
