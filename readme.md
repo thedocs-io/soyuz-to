@@ -85,5 +85,10 @@ import io.thedocs.soyuz.to;
 ## Dependencies
 This library depends on `slf4j-api` and `com.google.code.findbugs:jsr305` (`javax.annotation.Nullable`)
 
+## Other useful libraries
+- [soyuz-is](https://github.com/thedocs-io/soyuz-is) - java thruthy checks (don't use != null check in your if statements)
+- [soyuz-loge](https://github.com/thedocs-io/soyuz-loge) - slf4j wrapper which makes your logs cleaner and easier to read / find
+- [soyuz-validator](https://github.com/thedocs-io/soyuz-validator) - bean fluent validator based on builder pattern
+
 ## License
 MIT
