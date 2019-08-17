@@ -7,9 +7,10 @@ Most of the time we convert data from `X` type to `Y`. `soyuz-to` simplifies you
 3. \+ a little bit functional programming...
 
 ## to intro
-Basic rule: `to.$requredType($sourceValue)`. E.g. we want to convert `java.util.Date now` to `java.time.LocalDate`:
-```
-LocalDate date = to.localDate(now)
+Basic rule: `to.$requredType($sourceValue)`. E.g. we want to convert `java.util.Date` to `java.time.LocalDate`:
+```java
+Date publishedAt = getPublishedAt();
+LocalDate publishDate = to.localDate(publishedAt);
 ```
 
 ## to convert simple
